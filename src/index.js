@@ -55,12 +55,20 @@ client.on('clickButton', async (btn) => {
             btn.message.edit("text", null)
 
             break
-        case `${btn.clicker.id}.hyping`:
-            btn.message.edit("하이핑셀!", null)
-            break;
     }
 });
 
+client.on('clickMenu', menu => {
+    switch(menu.id) {
+        case `${menu.clicker.id}.ping`:
+            if(menu.values[0] == `${menu.clicker.id}.hyping`) {
+                menu.message.edit("아직 준비중입니다!")
+            } else if(menu.values[0] == `${menu.clicker.id}.lerzping`) {
+                menu.message.edit("아직 준비중입니다!")
+            }
+        break;
+    }
+});
 
 
 
